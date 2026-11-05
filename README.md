@@ -15,14 +15,14 @@ Pharmacy, insurance and data tools. Most are static web apps that run in the bro
 
 ### Formulary and search
 
-- [lx-search-svg](https://github.com/nickburser122/lx-search-svg) — Lx Search. Formulary lookup; list marked experimental. Installable (PWA); works offline after the first load.
+- [lx-search-svg](https://github.com/nickburser122/lx-search-svg) — Lx Search. Formulary lookup. Installable (PWA); works offline after the first load.
 - [newlist-svg](https://github.com/nickburser122/newlist-svg) — LX Search 4.1. Medicine search with calculator. No network calls after load; loads Google Fonts from a CDN.
 
 ### Reporting and analytics (Arabic)
 
 - [msar](https://github.com/nickburser122/msar) — Masar. Inspection-visit analytics. No network calls after load; loads SheetJS and Google Fonts from a CDN.
-- [letters](https://github.com/nickburser122/letters) — Letter counts by facility and user. No network calls after load; loads SheetJS and Google Fonts from a CDN.
-- [visit-tracker](https://github.com/nickburser122/visit-tracker) — Addad. Travel allowances from visit sheets. No network calls after load; loads Google Fonts from a CDN.
+- [letters](https://github.com/nickburser122/letters) — Letter counts. No network calls after load; loads SheetJS and Google Fonts from a CDN.
+- [visit-tracker](https://github.com/nickburser122/visit-tracker) — Addad. Travel allowances. No network calls after load; loads Google Fonts from a CDN.
 - [daftar](https://github.com/nickburser122/daftar) — Ledger reports from dispensing sheets. No network calls. Files stay in the tab.
 - [MIzan](https://github.com/nickburser122/MIzan) — Mizan. Splits incentive pools. No network calls after load; loads SheetJS and Google Fonts from a CDN.
 - [rushed-plan](https://github.com/nickburser122/rushed-plan) — Weekly visit planner. No network calls after load; loads Google Fonts from a CDN.
@@ -31,7 +31,7 @@ Pharmacy, insurance and data tools. Most are static web apps that run in the bro
 ### Trackers and launchers
 
 - [To-Do](https://github.com/nickburser122/To-Do) — Gov To Do. Calls the Google Sheets API when sync is configured; nothing else leaves the browser.
-- [entity-tracker](https://github.com/nickburser122/entity-tracker) — Contracted-entity statements; needs Google sign-in. Calls Firebase and Google Sheets for storage and sync; nothing else leaves the browser.
+- [entity-tracker](https://github.com/nickburser122/entity-tracker) — Contracted-entity statements. Calls Firebase for storage, and Google Sheets when sync is used; nothing else leaves the browser.
 - [entity-viewer](https://github.com/nickburser122/entity-viewer) — Reads entity statements. No network calls after load; loads SheetJS and Google Fonts from a CDN.
 - [roi-calculator](https://github.com/nickburser122/roi-calculator) — Investment-return calculator. No network calls after load; loads SheetJS from a CDN.
 - [app-launcher](https://github.com/nickburser122/app-launcher) — LinkExpress. No network calls after load; loads Font Awesome and Google Fonts from a CDN.
@@ -42,8 +42,8 @@ Pharmacy, insurance and data tools. Most are static web apps that run in the bro
 - [icleaner](https://github.com/nickburser122/icleaner) — Pasted text to table. No network calls after load; loads Google Fonts from a CDN.
 - [simple-font-maker](https://github.com/nickburser122/simple-font-maker) — Handwriting to font. Installable (PWA); works offline after the first load.
 - [basic-cover](https://github.com/nickburser122/basic-cover) — Printable cover forms. No network calls after load; loads Google Fonts from a CDN.
-- [survival-mirror2](https://github.com/nickburser122/survival-mirror2) — Survival curves; not individual predictions. No network calls. Files stay in the tab.
-- [Waymark](https://github.com/nickburser122/Waymark) — Clinic-flow routing; serve over HTTP. No network calls. Files stay in the tab.
-- [sloppy-bird](https://github.com/nickburser122/sloppy-bird) — Above the Fold, a runner game. Installable (PWA); works offline after the first load.
+- [survival-mirror2](https://github.com/nickburser122/survival-mirror2) — Population survival curves. No network calls. Files stay in the tab.
+- [Waymark](https://github.com/nickburser122/Waymark) — Clinic-flow routing. No network calls. Files stay in the tab.
+- [sloppy-bird](https://github.com/nickburser122/sloppy-bird) — Above the Fold game. Installable (PWA); works offline after the first load.
 
 Forks on this account (app-launcher, daftar, duckbench, lx-search-svg, newlist-svg, polars-desktop-demo, slippery-form-alt, survival-mirror2) are forks of repositories on my main account, [datakid](https://github.com/datakid), not third-party code.
