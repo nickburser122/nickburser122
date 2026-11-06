@@ -1,3 +1,5 @@
+Alternate account. Main account: [datakid](https://github.com/datakid).
+
 Pharmacy, insurance and data tools. Most are static web apps that run in the browser; the exceptions are marked below.
 
 ### Selected tools
@@ -26,7 +28,6 @@ Pharmacy, insurance and data tools. Most are static web apps that run in the bro
 - [daftar](https://github.com/nickburser122/daftar) — Ledger reports from dispensing sheets. No network calls. Files stay in the tab.
 - [MIzan](https://github.com/nickburser122/MIzan) — Mizan. Splits incentive pools. No network calls after load; loads SheetJS and Google Fonts from a CDN.
 - [rushed-plan](https://github.com/nickburser122/rushed-plan) — Weekly visit planner. No network calls after load; loads Google Fonts from a CDN.
-- [slippery-form-alt](https://github.com/nickburser122/slippery-form-alt) — LX Ledger. Calls a Cloudflare Workers endpoint to submit entries; nothing else leaves the browser.
 
 ### Trackers and launchers
 
@@ -34,7 +35,6 @@ Pharmacy, insurance and data tools. Most are static web apps that run in the bro
 - [entity-tracker](https://github.com/nickburser122/entity-tracker) — Contracted-entity statements. Calls Firebase for storage, and Google Sheets when sync is used; nothing else leaves the browser.
 - [entity-viewer](https://github.com/nickburser122/entity-viewer) — Reads entity statements. No network calls after load; loads SheetJS and Google Fonts from a CDN.
 - [roi-calculator](https://github.com/nickburser122/roi-calculator) — Investment-return calculator. No network calls after load; loads SheetJS from a CDN.
-- [app-launcher](https://github.com/nickburser122/app-launcher) — LinkExpress. No network calls after load; loads Font Awesome and Google Fonts from a CDN.
 - [tacit-web](https://github.com/nickburser122/tacit-web) — Tacit start page. Installable (PWA); works offline after the first load.
 
 ### Utilities, data and games
@@ -45,4 +45,8 @@ Pharmacy, insurance and data tools. Most are static web apps that run in the bro
 - [survival-mirror2](https://github.com/nickburser122/survival-mirror2) — Population survival curves. No network calls. Files stay in the tab.
 - [sloppy-bird](https://github.com/nickburser122/sloppy-bird) — Above the Fold game. Installable (PWA); works offline after the first load.
 
-Forks on this account (app-launcher, daftar, duckbench, lx-search-svg, newlist-svg, polars-desktop-demo, slippery-form-alt, survival-mirror2) are forks of repositories on my main account, [datakid](https://github.com/datakid), not third-party code.
+### Archived or superseded
+
+- [app-launcher](https://github.com/nickburser122/app-launcher) — LinkExpress. Superseded by the launcher on [datakid](https://github.com/datakid).
+
+Forks on this account (app-launcher, daftar, duckbench, lx-search-svg, newlist-svg, survival-mirror2) are forks of repositories on datakid, not third-party code.
