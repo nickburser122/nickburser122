@@ -48,5 +48,3 @@ Pharmacy, insurance and data tools. Most are static web apps that run in the bro
 ### Archived or superseded
 
 - [app-launcher](https://github.com/nickburser122/app-launcher) — LinkExpress. Superseded by the launcher on [datakid](https://github.com/datakid).
-
-Forks on this account (app-launcher, daftar, duckbench, lx-search-svg, newlist-svg, survival-mirror2) are forks of repositories on datakid, not third-party code.
