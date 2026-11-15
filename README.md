@@ -1,19 +1,55 @@
 Alternate account. Main account: [datakid](https://github.com/datakid).
 
-Pharmacy, insurance and data tools. Most are static web apps that run in the browser; the exceptions are marked below.
+Pharmacy, insurance and data tools. Most are static web apps that run in the browser; the exceptions are marked below. Each entry states what the tool does, what it does not do, and whether it touches the network.
 
 ### Selected tools
+
+Three tools with the most recorded checks. Each ledger lists what has been run and what has not. Every row comes from a file in that tool's repository.
+
+#### Tacit
+
+[Source](https://github.com/nickburser122/tacit) · [Known limits](https://github.com/nickburser122/tacit/blob/main/docs/limits.md) · [Decisions](https://github.com/nickburser122/tacit/blob/main/docs/decisions.md)
+
+Keyboard-first Android launcher: one search field opens apps, contacts, files, settings screens and quicklinks. Typos are matched by a budget that grows with word length, and Arabic letters are folded so Latin spellings find Arabic names. It asks for contacts, phone-call and all-files permissions. No INTERNET permission is declared.
+
+| Checked | Not checked |
+| --- | --- |
+| 68 test source files. Unit tests and device tests run in CI on Android 14, 15 and 16 emulators. | Nothing has been measured on a real phone. The 35-item on-device checklist in `docs/HANDOFF.md` has no ticked item. |
+| Ranking and file search are compared against golden files. | Benchmark numbers come from an API 35 emulator and are a trend only. |
+| The release build is repeated in CI and compared byte for byte. | `SettingsApplyTest` failed once in each of three milestones and passed on re-run. The cause is not found. |
+
+#### Cadence
+
+[Source](https://github.com/nickburser122/alt-plan-maker) · [Live](https://alt-plan-maker.vercel.app) · [Solver status](https://github.com/nickburser122/alt-plan-maker/blob/main/docs/solver-plan-status.md)
+
+Builds visit rotations for teams visiting facilities, in English and Arabic. The solver uses simulated annealing, so a plan is a good result and not a proven optimum. No network calls after load; loads Google Fonts from a CDN. Not installable; no service worker.
+
+| Checked | Not checked |
+| --- | --- |
+| 53 Node checks pass: oracle, fixtures, moves, preflight and golden. | A plan is not proven optimal. The exact checks cover open seats and rest conflicts. |
+| 40 golden runs reproduce identically. | The 1.5x speed target for a quarter plan is not met. |
+| The open-seat lower bound is tight on 79 of 83 instances that have one. The solver never beats it across 120 random instances. | |
+
+#### Tarq
+
+[Source](https://github.com/nickburser122/typing-practice) · [Live](https://typing-practice-wine-eta.vercel.app)
+
+Typing trainer in English and Arabic, built into one self-contained `index.html`. The Content-Security-Policy sets `connect-src 'none'`. Progress is kept in `localStorage`, so it is per browser and per device. No network calls. Files stay in the tab. Not installable; no service worker.
+
+| Checked | Not checked |
+| --- | --- |
+| 192 headless engine tests pass in Node. | Lesson progress is compared on simulated typists, not on people. |
+| The build fails on network calls, native dropdowns and a module boundary violation. | On a Mac, the number row and shifted symbols are not modelled, because the repository has no verified key table for them. Their hints follow Arabic 101. |
+
+### More tools
 
 | Tool | What it does, and what it does not | Network / install |
 | --- | --- | --- |
 | [Daleel](https://github.com/nickburser122/460-prices) · [live](https://460-prices.vercel.app) | Searches 2,714 records from Egypt's HIO price lists (decrees 460/2024 and 996/2020), with a source and confidence score on each amount. Beneficiary co-payments outside radiology are not covered. | No network calls after load; loads Google Fonts from a CDN. Not installable; no service worker. |
 | [AG Search](https://github.com/nickburser122/AG-search) · [live](https://ag-search.vercel.app) | Typo-tolerant lookup over 1,121 formulary items: 977 free and 144 paid with a patient contribution. The data is the formulary file bundled in the repository. | Installable (PWA); works offline after the first load. Loads Google Fonts from a CDN. |
 | [Bayan](https://github.com/nickburser122/bayan) · [live](https://bayan-mauve.vercel.app) | Analyses health-insurance pharmacy cost reports from xlsx, xls and xlsm files read in the browser. The interface is Arabic and right-to-left only. | No network calls after load; loads Google Fonts from a CDN. Not installable; no service worker. |
-| [Cadence](https://github.com/nickburser122/alt-plan-maker) · [live](https://alt-plan-maker.vercel.app) | Builds visit rotations for teams visiting facilities, in English and Arabic. The solver uses simulated annealing, so a plan is a good result, not a proven optimum. | No network calls after load; loads Google Fonts from a CDN. Not installable; no service worker. |
 | [Duckbench](https://github.com/nickburser122/duckbench) · [live](https://duckbench.vercel.app) | Cleans, reshapes, joins and exports files in two engines: Full (DuckDB-wasm, every transform, Parquet) and Express (Arquero, common transforms, CSV and Excel only). Full downloads DuckDB-wasm at run time, so its first load needs a connection. | Calls registry.npmjs.org for the latest DuckDB version when asked; nothing else leaves the browser. Loads DuckDB-wasm and Arquero from a CDN. Not installable; no service worker. |
 | [Waymark](https://github.com/nickburser122/Waymark) · [live](https://waymark-hazel.vercel.app) | Care-routing and clinic-flow tool; every feature runs through one six-stage pipeline from demand to decision. It must be served over HTTP, because modules and the batch worker do not load from `file://`. | No network calls. Files stay in the tab. Not installable; no service worker. |
-| [Tarq](https://github.com/nickburser122/typing-practice) · [live](https://typing-practice-wine-eta.vercel.app) | Typing trainer in English and Arabic, built into one self-contained `index.html`. Progress is kept in `localStorage`, so it is per browser and per device. | No network calls. Files stay in the tab. Not installable; no service worker. |
-| [Tacit](https://github.com/nickburser122/tacit) | Keyboard-first Android launcher: one search field opens apps, contacts and files. It asks for contacts, phone-call and all-files permissions. | Android (Kotlin); APK in Releases. No INTERNET permission is declared. |
 
 ### Formulary and search
 
