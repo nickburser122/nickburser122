@@ -12,8 +12,8 @@ Three tools with the most recorded checks. Each ledger lists what has been run a
 
 [Source](https://github.com/nickburser122/tacit) · [Known limits](https://github.com/nickburser122/tacit/blob/main/docs/limits.md) · [Decisions](https://github.com/nickburser122/tacit/blob/main/docs/decisions.md)
 
-![Tacit search results: two contacts, one in English and one in Arabic, then a settings screen, a file, a folder and a snippet](assets/tacit-light.png#gh-light-mode-only)
-![Tacit search results: two contacts, one in English and one in Arabic, then a settings screen, a file, a folder and a snippet](assets/tacit-dark.png#gh-dark-mode-only)
+![Tacit search results: a settings screen, a file, a folder, a snippet, a clipboard entry, a calculator result, a web search and a link](assets/tacit-light.png#gh-light-mode-only)
+![Tacit search results: a settings screen, a file, a folder, a snippet, a clipboard entry, a calculator result, a web search and a link](assets/tacit-dark.png#gh-dark-mode-only)
 
 Keyboard-first Android launcher: one search field opens apps, contacts, files, settings screens and quicklinks. Typos are matched by a budget that grows with word length, and Arabic letters are folded so Latin spellings find Arabic names. It asks for contacts, phone-call and all-files permissions. No INTERNET permission is declared.
 
