@@ -1,14 +1,19 @@
-Alternate account. Main account: [datakid](https://github.com/datakid).
+# Alternate account for [datakid](https://github.com/datakid)
 
 Pharmacy, insurance and data tools. Most are static web apps that run in the browser; the exceptions are marked below. Each entry states what the tool does, what it does not do, and whether it touches the network.
 
+[Selected tools](#selected-tools) · [More tools](#more-tools) · [Formulary and search](#formulary-and-search) · [Reporting and analytics](#reporting-and-analytics-arabic) · [Trackers and launchers](#trackers-and-launchers) · [Utilities, data and games](#utilities-data-and-games) · [Archived](#archived-or-superseded)
+
 ### Selected tools
 
-Three tools with the most recorded checks. Each ledger lists what has been run and what has not. Every row comes from a file in that tool's repository.
+Three tools with the most recorded checks. Each ledger lists what has been run and what has not. Every row comes from a file in that tool's repository. Screenshots show the apps with bundled or seeded data; the Tacit captures come from CI emulators.
 
 #### Tacit
 
 [Source](https://github.com/nickburser122/tacit) · [Known limits](https://github.com/nickburser122/tacit/blob/main/docs/limits.md) · [Decisions](https://github.com/nickburser122/tacit/blob/main/docs/decisions.md)
+
+![Tacit search results: two contacts, one in English and one in Arabic, then a settings screen, a file, a folder and a snippet](assets/tacit-light.png#gh-light-mode-only)
+![Tacit search results: two contacts, one in English and one in Arabic, then a settings screen, a file, a folder and a snippet](assets/tacit-dark.png#gh-dark-mode-only)
 
 Keyboard-first Android launcher: one search field opens apps, contacts, files, settings screens and quicklinks. Typos are matched by a budget that grows with word length, and Arabic letters are folded so Latin spellings find Arabic names. It asks for contacts, phone-call and all-files permissions. No INTERNET permission is declared.
 
@@ -22,6 +27,9 @@ Keyboard-first Android launcher: one search field opens apps, contacts, files, s
 
 [Source](https://github.com/nickburser122/alt-plan-maker) · [Live](https://alt-plan-maker.vercel.app) · [Solver status](https://github.com/nickburser122/alt-plan-maker/blob/main/docs/solver-plan-status.md)
 
+![Cadence Insights tab for a one-month plan: 61 of 61 seats filled, 0 rule breaks, and the rules audit](assets/cadence-light.png#gh-light-mode-only)
+![Cadence Insights tab for a one-month plan: 61 of 61 seats filled, 0 rule breaks, and the rules audit](assets/cadence-dark.png#gh-dark-mode-only)
+
 Builds visit rotations for teams visiting facilities, in English and Arabic. The solver uses simulated annealing, so a plan is a good result and not a proven optimum. No network calls after load; loads Google Fonts from a CDN. Not installable; no service worker.
 
 | Checked | Not checked |
@@ -33,6 +41,9 @@ Builds visit rotations for teams visiting facilities, in English and Arabic. The
 #### Tarq
 
 [Source](https://github.com/nickburser122/typing-practice) · [Live](https://typing-practice-wine-eta.vercel.app)
+
+![Tarq Learn screen: a lesson on four unlocked keys, with the on-screen keyboard below](assets/tarq-light.png#gh-light-mode-only)
+![Tarq Learn screen: a lesson on four unlocked keys, with the on-screen keyboard below](assets/tarq-dark.png#gh-dark-mode-only)
 
 Typing trainer in English and Arabic, built into one self-contained `index.html`. The Content-Security-Policy sets `connect-src 'none'`. Progress is kept in `localStorage`, so it is per browser and per device. No network calls. Files stay in the tab. Not installable; no service worker.
 
@@ -75,6 +86,7 @@ Typing trainer in English and Arabic, built into one self-contained `index.html`
 
 ### Utilities, data and games
 
+- [randomizer](https://github.com/nickburser122/randomizer) — Passwords, fake-data tables, random picks, dice and tokens. Passwords use the browser's cryptographic generator; a seeded table does not, so it is not for secrets. No network calls. Files stay in the tab.
 - [icleaner](https://github.com/nickburser122/icleaner) — Pasted text to table. No network calls after load; loads Google Fonts from a CDN.
 - [simple-font-maker](https://github.com/nickburser122/simple-font-maker) — Handwriting to font. Installable (PWA); works offline after the first load.
 - [basic-cover](https://github.com/nickburser122/basic-cover) — Printable cover forms. No network calls after load; loads Google Fonts from a CDN.
