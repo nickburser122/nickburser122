@@ -2,7 +2,7 @@
 
 Pharmacy, insurance and data tools. Most are static web apps that run in the browser; the exceptions are marked below. Each entry states what the tool does, what it does not do, and whether it touches the network.
 
-[Selected tools](#selected-tools) · [More tools](#more-tools) · [Formulary and search](#formulary-and-search) · [Reporting and analytics](#reporting-and-analytics-arabic) · [Trackers and launchers](#trackers-and-launchers) · [Utilities, data and games](#utilities-data-and-games) · [Archived](#archived-or-superseded)
+[Selected tools](#selected-tools) · [How these are built](#how-these-are-built) · [More tools](#more-tools) · [Formulary and search](#formulary-and-search) · [Reporting and analytics](#reporting-and-analytics-arabic) · [Trackers and launchers](#trackers-and-launchers) · [Utilities, data and games](#utilities-data-and-games) · [Archived](#archived-or-superseded)
 
 ### Selected tools
 
@@ -51,6 +51,12 @@ Typing trainer in English and Arabic, built into one self-contained `index.html`
 | --- | --- |
 | 192 headless engine tests pass in Node. | Lesson progress is compared on simulated typists, not on people. |
 | The build fails on network calls, native dropdowns and a module boundary violation. | On a Mac, the number row and shifted symbols are not modelled, because the repository has no verified key table for them. Their hints follow Arabic 101. |
+
+### How these are built
+
+The code in these repositories is written by AI models. The usual workflow is Claude Opus 5.5 planning a change and Claude Sonnet 5.5 carrying it out. Claude Fable 5.2 is used rarely, as a creative director. Opus and Sonnet review the output, and how much review a project gets depends on its complexity. Which model did which part of a tool is not recorded. The owner sets the rules a change must follow, for example no code comments in Tacit and no INTERNET permission.
+
+Where a tool has them, files in `docs/` record the build. [Tacit's decisions](https://github.com/nickburser122/tacit/blob/main/docs/decisions.md) explain why the code is as it is. [Cadence's solver status](https://github.com/nickburser122/alt-plan-maker/blob/main/docs/solver-plan-status.md) lists each option and the evidence behind its default. The ledgers above state what has been run and what has not.
 
 ### More tools
 
