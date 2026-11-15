@@ -6,7 +6,7 @@ Pharmacy, insurance and data tools. Most are static web apps that run in the bro
 
 ### Selected tools
 
-Three tools with the most recorded checks. Each ledger lists what has been run and what has not. Every row comes from a file in that tool's repository. Screenshots show the apps with bundled or seeded data; the Tacit captures come from CI emulators.
+Four tools with the most recorded checks. Each ledger lists what has been run and what has not. Every row comes from a file in that tool's repository. Screenshots show the apps with bundled or seeded data; the Tacit captures come from CI emulators.
 
 #### Tacit
 
@@ -52,6 +52,21 @@ Typing trainer in English and Arabic, built into one self-contained `index.html`
 | 192 headless engine tests pass in Node. | Lesson progress is compared on simulated typists, not on people. |
 | The build fails on network calls, native dropdowns and a module boundary violation. | On a Mac, the number row and shifted symbols are not modelled, because the repository has no verified key table for them. Their hints follow Arabic 101. |
 
+#### randomizer
+
+[Source](https://github.com/nickburser122/randomizer) · [Known limits](https://github.com/nickburser122/randomizer/blob/main/README.md#known-limits)
+
+![randomizer Table tab: a 20-row, 5-column fake-data table with id, name, email, score and status columns, and copy and save controls](assets/randomizer-light.png#gh-light-mode-only)
+![randomizer Table tab: a 20-row, 5-column fake-data table with id, name, email, score and status columns, and copy and save controls](assets/randomizer-dark.png#gh-dark-mode-only)
+
+Generates passwords, fake-data tables, random picks, dice rolls, tokens and color palettes. Passwords come as characters, 7,776-word passphrases, pronounceable syllables or PINs, and use the browser's cryptographic generator. Tables have 15 column types, export as TSV, CSV, JSON, Markdown or SQL, and run to 100,000 rows; a seeded table does not use the cryptographic generator, so it is not for secrets. The interface is English only. Settings and the last 40 results stay in `localStorage`, per browser and per device; password results are kept only if that is turned on. No network calls. Files stay in the tab. Not installable; no service worker.
+
+| Checked | Not checked |
+| --- | --- |
+| 52 unit tests pass in Node. | Not tested with a real screen reader. Accessibility is covered by automated checks only. |
+| 20 smoke checks pass in headless Chromium against the built page. | The hosted-preview build target for Claude artifacts is untested. |
+| Every text color pair reaches 4.5:1, and every focus ring, field border and icon reaches 3:1, in both themes. | Spaces in a dice formula are ignored, so `2d6 3` reads as `2d63`. |
+
 ### How these are built
 
 The code in these repositories is written by AI models. The usual workflow is Claude Opus 5.5 planning a change and Claude Sonnet 5.5 carrying it out. Claude Fable 5.2 is used rarely, as a creative director. Opus and Sonnet review the output, and how much review a project gets depends on its complexity. Which model did which part of a tool is not recorded. The owner sets the rules a change must follow, for example no code comments in Tacit and no INTERNET permission.
@@ -92,7 +107,6 @@ Where a tool has them, files in `docs/` record the build. [Tacit's decisions](ht
 
 ### Utilities, data and games
 
-- [randomizer](https://github.com/nickburser122/randomizer) — Passwords, fake-data tables, random picks, dice and tokens. Passwords use the browser's cryptographic generator; a seeded table does not, so it is not for secrets. No network calls. Files stay in the tab.
 - [icleaner](https://github.com/nickburser122/icleaner) — Pasted text to table. No network calls after load; loads Google Fonts from a CDN.
 - [simple-font-maker](https://github.com/nickburser122/simple-font-maker) — Handwriting to font. Installable (PWA); works offline after the first load.
 - [basic-cover](https://github.com/nickburser122/basic-cover) — Printable cover forms. No network calls after load; loads Google Fonts from a CDN.
