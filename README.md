@@ -53,7 +53,7 @@ Typing trainer in English and Arabic, built into one self-contained `index.html`
 
 ### Formulary and search
 
-- [lx-search-svg](https://github.com/nickburser122/lx-search-svg) — Lx Search. Formulary lookup. Installable (PWA); works offline after the first load.
+- [lx-search-svg](https://github.com/nickburser122/lx-search-svg) — Lx Search. Formulary lookup. Installable (PWA); works offline after the first load. Loads Google Fonts from a CDN.
 - [newlist-svg](https://github.com/nickburser122/newlist-svg) — LX Search 4.1. Medicine search with calculator. No network calls after load; loads Google Fonts from a CDN.
 
 ### Reporting and analytics (Arabic)
@@ -68,9 +68,9 @@ Typing trainer in English and Arabic, built into one self-contained `index.html`
 ### Trackers and launchers
 
 - [To-Do](https://github.com/nickburser122/To-Do) — Gov To Do. Calls the Google Sheets API when sync is configured; nothing else leaves the browser.
-- [entity-tracker](https://github.com/nickburser122/entity-tracker) — Contracted-entity statements. Calls Firebase for storage, and Google Sheets when sync is used; nothing else leaves the browser.
+- [entity-tracker](https://github.com/nickburser122/entity-tracker) — Contracted-entity statements. Calls Firebase for storage and sign-in, and Google Sheets when sync is used. Loads the Firebase SDK, Google sign-in, SheetJS and Google Fonts from CDNs.
 - [entity-viewer](https://github.com/nickburser122/entity-viewer) — Reads entity statements. No network calls after load; loads SheetJS and Google Fonts from a CDN.
-- [roi-calculator](https://github.com/nickburser122/roi-calculator) — Investment-return calculator. No network calls after load; loads SheetJS from a CDN.
+- [roi-calculator](https://github.com/nickburser122/roi-calculator) — Investment-return calculator. No network calls after load; loads SheetJS and Google Fonts from a CDN.
 - [tacit-web](https://github.com/nickburser122/tacit-web) — Tacit start page. Installable (PWA); works offline after the first load.
 
 ### Utilities, data and games
