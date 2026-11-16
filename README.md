@@ -2,13 +2,13 @@
 
 Pharmacy, insurance and data tools. Most are static web apps that run in the browser; the exceptions are marked below. Each entry states what the tool does, what it does not do, and whether it touches the network.
 
-[Selected tools](#selected-tools) · [How these are built](#how-these-are-built) · [More tools](#more-tools) · [Formulary and search](#formulary-and-search) · [Reporting and analytics](#reporting-and-analytics-arabic) · [Trackers and launchers](#trackers-and-launchers) · [Utilities, data and games](#utilities-data-and-games) · [Archived](#archived-or-superseded)
+[Selected tools](#selected-tools) · [How these are built](#how-these-are-built) · [More tools](#more-tools) · [Everything else](#everything-else)
 
-### Selected tools
+## Selected tools
 
 Four tools with the most recorded checks. Each ledger lists what has been run and what has not. Every row comes from a file in that tool's repository. Screenshots show the apps with bundled or seeded data; the Tacit captures come from CI emulators.
 
-#### Tacit
+### Tacit
 
 [Source](https://github.com/nickburser122/tacit) · [Known limits](https://github.com/nickburser122/tacit/blob/main/docs/limits.md) · [Decisions](https://github.com/nickburser122/tacit/blob/main/docs/decisions.md)
 
@@ -23,7 +23,7 @@ Keyboard-first Android launcher: one search field opens apps, contacts, files, s
 | Ranking and file search are compared against golden files. | Benchmark numbers come from an API 35 emulator and are a trend only. |
 | The release build is repeated in CI and compared byte for byte. | `SettingsApplyTest` failed once in each of three milestones and passed on re-run. The cause is not found. |
 
-#### Cadence
+### Cadence
 
 [Source](https://github.com/nickburser122/alt-plan-maker) · [Live](https://alt-plan-maker.vercel.app) · [Solver status](https://github.com/nickburser122/alt-plan-maker/blob/main/docs/solver-plan-status.md)
 
@@ -38,7 +38,7 @@ Builds visit rotations for teams visiting facilities, in English and Arabic. The
 | 40 golden runs reproduce identically. | The 1.5x speed target for a quarter plan is not met. |
 | The open-seat lower bound is tight on 79 of 83 instances that have one. The solver never beats it across 120 random instances. | |
 
-#### Tarq
+### Tarq
 
 [Source](https://github.com/nickburser122/typing-practice) · [Live](https://typing-practice-wine-eta.vercel.app)
 
@@ -52,7 +52,7 @@ Typing trainer in English and Arabic, built into one self-contained `index.html`
 | 192 headless engine tests pass in Node. | Lesson progress is compared on simulated typists, not on people. |
 | The build fails on network calls, native dropdowns and a module boundary violation. | On a Mac, the number row and shifted symbols are not modelled, because the repository has no verified key table for them. Their hints follow Arabic 101. |
 
-#### randomizer
+### randomizer
 
 [Source](https://github.com/nickburser122/randomizer) · [Known limits](https://github.com/nickburser122/randomizer/blob/main/README.md#known-limits)
 
@@ -67,13 +67,13 @@ Generates passwords, fake-data tables, random picks, dice rolls, tokens and colo
 | 20 smoke checks pass in headless Chromium against the built page. | The hosted-preview build target for Claude artifacts is untested. |
 | Every text color pair reaches 4.5:1, and every focus ring, field border and icon reaches 3:1, in both themes. | Spaces in a dice formula are ignored, so `2d6 3` reads as `2d63`. |
 
-### How these are built
+## How these are built
 
 The code in these repositories is written by AI models. The usual workflow is Claude Opus 5.5 planning a change and Claude Sonnet 5.5 carrying it out. Claude Fable 5.2 is used rarely, as a creative director. Opus and Sonnet review the output, and how much review a project gets depends on its complexity. Which model did which part of a tool is not recorded. The owner sets the rules a change must follow, for example no code comments in Tacit and no INTERNET permission.
 
 Where a tool has them, files in `docs/` record the build. [Tacit's decisions](https://github.com/nickburser122/tacit/blob/main/docs/decisions.md) explain why the code is as it is. [Cadence's solver status](https://github.com/nickburser122/alt-plan-maker/blob/main/docs/solver-plan-status.md) lists each option and the evidence behind its default. The ledgers above state what has been run and what has not.
 
-### More tools
+## More tools
 
 | Tool | What it does, and what it does not | Network / install |
 | --- | --- | --- |
@@ -82,6 +82,8 @@ Where a tool has them, files in `docs/` record the build. [Tacit's decisions](ht
 | [Bayan](https://github.com/nickburser122/bayan) · [live](https://bayan-mauve.vercel.app) | Analyses health-insurance pharmacy cost reports from xlsx, xls and xlsm files read in the browser. The interface is Arabic and right-to-left only. | No network calls after load; loads Google Fonts from a CDN. Not installable; no service worker. |
 | [Duckbench](https://github.com/nickburser122/duckbench) · [live](https://duckbench.vercel.app) | Cleans, reshapes, joins and exports files in two engines: Full (DuckDB-wasm, every transform, Parquet) and Express (Arquero, common transforms, CSV and Excel only). Full downloads DuckDB-wasm at run time, so its first load needs a connection. | Calls registry.npmjs.org for the latest DuckDB version when asked; nothing else leaves the browser. Loads DuckDB-wasm and Arquero from a CDN. Not installable; no service worker. |
 | [Waymark](https://github.com/nickburser122/Waymark) · [live](https://waymark-hazel.vercel.app) | Care-routing and clinic-flow tool; every feature runs through one six-stage pipeline from demand to decision. It must be served over HTTP, because modules and the batch worker do not load from `file://`. | No network calls. Files stay in the tab. Not installable; no service worker. |
+
+## Everything else
 
 ### Formulary and search
 
