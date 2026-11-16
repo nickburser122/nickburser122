@@ -1,0 +1,115 @@
+name: Draft a tool entry
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: Repository name under this account
+        required: true
+      name:
+        description: Display name on the page (defaults to the repository name)
+        required: false
+      page:
+        description: Page to capture, relative to the repository (after the build, if any)
+        required: false
+        default: index.html
+      build:
+        description: Command to run in the repository before capturing, for example npm run build
+        required: false
+      click:
+        description: Text of a button to click before capturing
+        required: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    env:
+      OWNER: ${{ github.repository_owner }}
+      REPO: ${{ inputs.repo }}
+      NAME: ${{ inputs.name }}
+      PAGE: ${{ inputs.page }}
+      BUILD: ${{ inputs.build }}
+      CLICK: ${{ inputs.click }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check the inputs
+        run: |
+          if ! printf '%s' "$REPO" | grep -Eq '^[A-Za-z0-9._-]+$'; then
+            echo "repo must contain only letters, digits, dots, dashes and underscores"
+            exit 1
+          fi
+          if [ "$(git ls-remote --heads origin "add/$(printf '%s' "$REPO" | tr '[:upper:]' '[:lower:]')" | wc -l)" -gt 0 ]; then
+            echo "a branch for this repository already exists"
+            exit 1
+          fi
+
+      - name: Install capture tools
+        run: |
+          pip install playwright pillow
+          python -m playwright install --with-deps chromium
+
+      - name: Clone the tool
+        run: git clone --depth 1 "https://github.com/$OWNER/$REPO" tool
+
+      - name: Audit network and install behaviour
+        run: node scripts/audit.mjs tool > audit.json
+
+      - name: Run the tool's tests
+        run: |
+          set +e
+          cd tool
+          if node -e "process.exit(require('./package.json').scripts?.test?0:1)" 2>/dev/null; then
+            npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+            npm test > ../test.log 2>&1
+            echo "test exit code: $?"
+          else
+            echo "no test script" > ../test.log
+          fi
+          exit 0
+
+      - name: Build
+        if: ${{ inputs.build != '' }}
+        run: |
+          cd tool
+          bash -c "$BUILD"
+
+      - name: Capture screenshots
+        run: |
+          SLUG=$(printf '%s' "$REPO" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g')
+          ARGS=()
+          if [ -n "$CLICK" ]; then ARGS+=(--click "$CLICK"); fi
+          python scripts/shoot.py "tool/$PAGE" "assets/$SLUG" "${ARGS[@]}"
+
+      - name: Write the draft entry
+        run: |
+          DESC=$(gh api "repos/$OWNER/$REPO" --jq '.description // ""')
+          python scripts/draft.py \
+            --owner "$OWNER" --repo "$REPO" --name "$NAME" --description "$DESC" \
+            --audit audit.json --testlog test.log --tool-readme tool/README.md \
+            --profile-readme README.md --body-out pr-body.md
+
+      - name: Open a draft pull request
+        run: |
+          SLUG=$(printf '%s' "$REPO" | tr '[:upper:]' '[:lower:]')
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "add/$SLUG"
+          git add README.md assets
+          git commit -m "feat: draft ${NAME:-$REPO} entry"
+          git push origin "add/$SLUG"
+          gh pr create --draft --base main --head "add/$SLUG" \
+            --title "feat: draft ${NAME:-$REPO} entry" --body-file pr-body.md
